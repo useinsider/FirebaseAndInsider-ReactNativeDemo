@@ -14,6 +14,6 @@
 
 * Go to the iOS folder with terminal and run the "pod install" command
 
-* Open XCode and check the app group for all targets
+* Open XCode and check the app group and bundle identifier for all targets
 
 * And Run Project
