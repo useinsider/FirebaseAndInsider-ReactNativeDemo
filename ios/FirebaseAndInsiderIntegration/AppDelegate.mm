@@ -50,6 +50,8 @@
     }
 }
 
+// If you want to enable push view on foreground
+
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
     NSDictionary *userInfo = notification.request.content.userInfo;
     
@@ -70,6 +72,18 @@
         }
     }
 }
+
+/* If you want to disable push view on foreground use this code
+ 
+ - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+     NSDictionary *userInfo = notification.request.content.userInfo;
+     
+     if (userInfo[@"source"] && [userInfo[@"source"] isEqualToString:@"Insider"]) {
+        [Insider triggerPushProcessWithUserInfo:userInfo];
+     }
+ }
+ 
+ */
 
 
 @end
