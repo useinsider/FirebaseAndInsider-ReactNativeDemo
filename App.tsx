@@ -112,7 +112,6 @@ async function initInsider() {
   );
 
   RNInsider.registerWithQuietPermission(false);
-  RNInsider.setActiveForegroundPushView();
 }
 
 function App(): JSX.Element {
@@ -122,12 +121,31 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  requestUserPermission();
-
   useEffect(() => {
+    requestUserPermission();
+
     const unsubscribe = messaging().onMessage(async (remoteMessage) => {
-      // console.log("A new FCM message arrived! :" + JSON.stringify(remoteMessage));
+      console.log(
+        "A new FCM message arrived! :" + JSON.stringify(remoteMessage)
+      );
     });
+
+    messaging().onNotificationOpenedApp((remoteMessage) => {
+      console.log(
+        "Notification caused app to open from background state:" +  JSON.stringify(remoteMessage)
+      );
+    });
+
+    messaging()
+      .getInitialNotification()
+      .then((remoteMessage) => {
+        if (remoteMessage) {
+          console.log(
+            "Notification caused app to open from quit state:",
+            remoteMessage.notification
+          );
+        }
+      });
 
     initInsider();
 
