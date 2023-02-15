@@ -48,6 +48,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your 'Location Always Usage Description' goes here.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your 'Location Always Usage Description' goes here.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIBackgroundModes</key>

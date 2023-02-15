@@ -112,6 +112,7 @@ async function initInsider() {
   );
 
   RNInsider.registerWithQuietPermission(false);
+  RNInsider.startTrackingGeofence();
 }
 
 function App(): JSX.Element {
