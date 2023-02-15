@@ -132,7 +132,7 @@ function App(): JSX.Element {
 
     messaging().onNotificationOpenedApp((remoteMessage) => {
       console.log(
-        "Notification caused app to open from background state:" +  JSON.stringify(remoteMessage)
+        "Notification caused app to open:" +  JSON.stringify(remoteMessage)
       );
     });
 
